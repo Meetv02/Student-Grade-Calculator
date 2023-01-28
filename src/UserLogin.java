@@ -6,7 +6,7 @@ public class UserLogin {
         Console cnl = System.console();
         String password,uname;
         String fmt="*";
-
+        //getting username input
         System.out.println("Enter Username : ");
         uname = cnl.readLine();
         System.out.println("Enter Password : ");
