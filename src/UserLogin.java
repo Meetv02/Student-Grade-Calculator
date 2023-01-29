@@ -2,26 +2,12 @@ import java.io.Console;
 import java.util.Scanner;
 
 public class UserLogin {
-    public void Login(){
-        Console cnl = System.console();
-        String password,uname;
-        String fmt="*";
-        //getting username input
-        System.out.println("Enter Username : ");
-        uname = cnl.readLine();
-        System.out.println("Enter Password : ");
-        password = cnl.readPassword(fmt,"enter password").toString();
+    UserRegister register;
+    UserLogin(UserRegister register){
+        this.register = register;
     }
 
-    public void forgetPassword(){
-        Console cnl = System.console();
-        String password,uname;
-
-        System.out.println("Enter your Username : ");
-        uname = cnl.readLine();
-    }
-
-    public static void main(String[] args){
+    public void loginMenu(){
         int ch;
         Scanner sc = new Scanner(System.in);
         while(true){
@@ -34,10 +20,10 @@ public class UserLogin {
             ch = sc.nextInt();
             switch(ch){
                 case 1 :
-                    new UserLogin().Login();
+                    new UserLogin(this.register).Login();
                     break;
                 case 2 :
-                    new UserLogin().forgetPassword();
+                    new UserLogin(this.register).forgetPassword();
                     break;
                 case 3 :
                     return;
@@ -46,5 +32,41 @@ public class UserLogin {
                     break;
             }
         }
+    }
+    public void Login(){
+        try{
+            Console cnl = System.console();
+            String password,uname;
+            String fmt="*";
+            //getting username input
+            System.out.println("Enter Username : ");
+            uname = cnl.readLine();
+            System.out.println("Enter Password : ");
+            password = cnl.readPassword(fmt,"enter password").toString();
+
+            if(new Authenticate().verifyLogin(uname, password, register)){
+
+            }
+        }catch(Exception e){
+            System.out.println("Login Error "+e);
+        }
+    }
+
+    public void forgetPassword(){
+        try{
+            Console cnl = System.console();
+            String password,uname;
+
+            System.out.println("Enter your Username : ");
+            uname = cnl.readLine();
+            System.out.println("Enter New Password : ");
+            password = cnl.readPassword().toString();
+        }catch (Exception e){
+            System.out.println("Forget Password Error "+e);
+        }
+    }
+
+    public static void main(String[] args){
+
     }
 }
