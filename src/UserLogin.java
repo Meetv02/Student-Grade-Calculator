@@ -11,6 +11,7 @@ public class UserLogin {
         int ch;
         Scanner sc = new Scanner(System.in);
         while(true){
+//            System.out.println("\033\143");
             System.out.println("Options");
             System.out.println("1 - Enter Credentials (Username And Password)");
             System.out.println("2 - Forget Password");

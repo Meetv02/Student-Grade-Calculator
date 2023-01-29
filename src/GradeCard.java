@@ -6,6 +6,7 @@ public class GradeCard {
     Map<String,Integer> markData = new HashMap<String,Integer>();
 
     public void getInput(){
+        System.out.println("\033\143");
         int studID,noOfSub,marks;
         String subName;
         Scanner sc = new Scanner(System.in);
@@ -44,6 +45,7 @@ public class GradeCard {
         int ch;
         Scanner sc = new Scanner(System.in);
         while(true){
+//            System.out.println("\033\143");
             System.out.println("Options");
             System.out.println("1 - Show Percentage");
             System.out.println("2 - Show Grades");
