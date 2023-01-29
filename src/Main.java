@@ -22,7 +22,8 @@ public class Main {
                     register.Register();
                     break;
                 case 3 :
-                    return;
+                    System.exit(0);
+                    break;
                 default:
                     System.out.println("Wrong choice!! Try Again...");
                     break;

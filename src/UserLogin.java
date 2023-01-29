@@ -22,7 +22,7 @@ public class UserLogin {
             switch(ch){
                 case 1 :
                     new UserLogin(this.register).Login();
-                    return;
+                    break;
                 case 2 :
                     new UserLogin(this.register).forgetPassword();
                     break;
