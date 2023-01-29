@@ -47,7 +47,8 @@ public class GradeCard {
             System.out.println("1 - Show Percentage");
             System.out.println("2 - Show Grades");
             System.out.println("3 - Show Status");
-            System.out.println("4 - Exit");
+            System.out.println("4 - Log Out");
+            System.out.println("5 - Back");
 
             System.out.println("Enter Choice : ");
             ch = sc.nextInt();
@@ -56,12 +57,19 @@ public class GradeCard {
                     getPercentage();
                     break;
                 case 2 :
-
+                    System.out.println("Your Grade is : "+getGrades());
                     break;
                 case 3 :
-
+                    if(getStatus()){
+                        System.out.println("Your status is : PASS");
+                    }else{
+                        System.out.println("Your status is : FAIL");
+                    }
                     break;
                 case 4 :
+                    new Main().homeMenu();
+                    return;
+                case 5 :
                     return;
                 default:
                     System.out.println("Invalid Input!! Try again...");
@@ -70,17 +78,48 @@ public class GradeCard {
         }
     }
 
-    public void getPercentage(){
+    public int getPercentage(){
         int total=0;
 
         for(Map.Entry<String,Integer> entry : markData.entrySet()){
             total+=entry.getValue();
         }
 
-        System.out.println("Percentage : "+(total/markData.size()));
+        return total/markData.size();
     }
 
-    public void getGrades(){
+    public char getGrades(){
+        int percentage = getPercentage();
 
+        if(percentage>=90){
+            return 'A';
+        }else if(percentage>=80){
+            return 'B';
+        }else if(percentage>=70){
+            return 'C';
+        }else if(percentage>=60){
+            return 'D';
+        }else if(percentage>=40){
+            return 'E';
+        }
+
+        return 'F';
+    }
+
+    public boolean getStatus(){
+        int percentage = getPercentage();
+        boolean flag=true;
+
+        for(Map.Entry<String,Integer> entry : markData.entrySet()){
+            if(entry.getValue()<35){
+                flag=false;
+                break;
+            }
+        }
+
+        if(flag && percentage>=40){
+            return true;
+        }
+        return false;
     }
 }

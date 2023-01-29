@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void homeMenu(){
         Scanner sc = new Scanner(System.in);
         UserRegister register=new UserRegister();
         while(true){
@@ -27,5 +27,8 @@ public class Main {
                     break;
             }
         }
+    }
+    public static void main(String[] args) {
+        homeMenu();
     }
 }
