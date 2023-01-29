@@ -3,22 +3,32 @@ import java.util.Scanner;
 
 public class UserLogin {
     public void Login(){
-        Console cnl = System.console();
-        String password,uname;
-        String fmt="*";
-        //getting username input
-        System.out.println("Enter Username : ");
-        uname = cnl.readLine();
-        System.out.println("Enter Password : ");
-        password = cnl.readPassword(fmt,"enter password").toString();
+        try{
+            Console cnl = System.console();
+            String password,uname;
+            String fmt="*";
+            //getting username input
+            System.out.println("Enter Username : ");
+            uname = cnl.readLine();
+            System.out.println("Enter Password : ");
+            password = cnl.readPassword(fmt,"enter password").toString();
+        }catch(Exception e){
+            System.out.println("Login Error "+e);
+        }
     }
 
     public void forgetPassword(){
-        Console cnl = System.console();
-        String password,uname;
+        try{
+            Console cnl = System.console();
+            String password,uname;
 
-        System.out.println("Enter your Username : ");
-        uname = cnl.readLine();
+            System.out.println("Enter your Username : ");
+            uname = cnl.readLine();
+            System.out.println("Enter New Password : ");
+            password = cnl.readPassword().toString();
+        }catch (Exception e){
+            System.out.println("Forget Password Error "+e);
+        }
     }
 
     public static void main(String[] args){

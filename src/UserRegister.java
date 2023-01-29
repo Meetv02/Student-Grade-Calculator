@@ -9,8 +9,8 @@ public class UserRegister {
             String FullName = scanner.nextLine();
 
             if(scanner.hasNext("[A-Za-z]*")) {
-                input = sc.next();
-                System.out.println("You entered a string value "+input);
+//                input = sc.next();
+//                System.out.println("You entered a string value "+input);
             }else {
                 System.out.println("Please Enter a Valid Value");
             }
