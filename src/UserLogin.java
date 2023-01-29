@@ -60,12 +60,20 @@ public class UserLogin {
     public void forgetPassword(){
         try{
             Console cnl = System.console();
-            String password,uname;
+            String uname;
 
             System.out.println("Enter your Username : ");
             uname = cnl.readLine();
-            System.out.println("Enter New Password : ");
-            password = cnl.readPassword().toString();
+            while (uname.length() < 6) {
+                System.out.println("Error: Name must be at least 6 characters long and only alphabet.");
+                System.out.println("Enter your Username : ");
+                uname = cnl.readLine();
+            }
+            char[] password = cnl.readPassword("Enter New password:");
+            while (!register.isValidPassword( new String(password))){
+                System.out.println("Error: Password must contain 6 characters long, one lowercase letter, one uppercase letter, and one digit.");
+                password = cnl.readPassword("Enter your password:");
+            }
         }catch (Exception e){
             System.out.println("Forget Password Error "+e);
         }
