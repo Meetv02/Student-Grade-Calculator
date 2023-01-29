@@ -1,36 +1,77 @@
-import  java.util.Scanner;
+import  java.util.*;
+import java.io.Console;
 public class UserRegister {
+    public static boolean isValidPassword(String password) {
+        boolean hasLetter = false;
+        boolean hasUpperCase = false;
+        boolean hasDigit = false;
+
+        for (int i = 0; i < password.length(); i++) {
+            char c = password.charAt(i);
+            if (Character.isLetter(c)) {
+                hasLetter = true;
+            }
+            if (Character.isUpperCase(c)) {
+                hasUpperCase = true;
+            }
+            if (Character.isDigit(c)) {
+                hasDigit = true;
+            }
+        }
+        return hasLetter && hasUpperCase && hasDigit && password.length() > 6;
+    }
 
     public  void  Register(){
         try {
             Scanner scanner = new Scanner(System.in);
-            // Register
-            System.out.print("Full Name: ");
-            String FullName = scanner.nextLine();
+            Console cnl=System.console();
+            // Here aList is an ArrayList of ArrayLists
+            ArrayList<ArrayList<String> > UserList =new ArrayList<ArrayList<String> >();
+            ArrayList<String> User = new ArrayList<String>();
 
-            if(scanner.hasNext("[A-Za-z]*")) {
-//                input = sc.next();
-//                System.out.println("You entered a string value "+input);
-            }else {
-                System.out.println("Please Enter a Valid Value");
+
+            // Register
+            String FullName,Username;
+            System.out.print("Full Name: ");
+            FullName = scanner.nextLine();
+            //Name Validation
+            while (FullName.length() < 1) {
+                System.out.println("Error: Please Enter the Name ");
+                System.out.print("Full Name: ");
+                FullName = scanner.nextLine();
             }
             System.out.print("Username: ");
-            String Username = scanner.next();
-            System.out.print("Password: ");
-            String Password = scanner.next();
+            Username = scanner.next();
+            //Username Validation
+            while (Username.length() < 6) {
+                System.out.println("Error: Name must be at least 6 characters long and only alphabet.");
+                System.out.print("Username : ");
+                Username = scanner.nextLine();
+            }
+            char[] Password = cnl.readPassword("Enter your password:");
+            for (int i = 0; i <Password.length; i++) {
+                System.out.print("*");
+            }
+            System.out.println();
+            //Password Validation
+            while (!isValidPassword( new String(Password))){
+                System.out.println("Error: Password must contain 6 characters long, one lowercase letter, one uppercase letter, and one digit.");
+                Password = cnl.readPassword("Enter your password:");
+            }
+            User.add(FullName);
+            User.add(Username);
+            User.add(new String(Password));
+            UserList.add(User);
 
-            // validate username
-            if (Username.trim().isEmpty()) {
-                System.out.println("Username cannot be blank.");
-                //return;
+            for (int i = 0; i < UserList.size(); i++) {
+                for (int j = 0; j < UserList.get(i).size(); j++) {
+                    System.out.print(UserList.get(i).get(j) + " ");
+                }
+                System.out.println();
             }
             System.out.println("Registration Successful!");
         }catch (Exception e){
             System.out.println("Registration Error"+e);
         }
-
-
     }
-
-
 }

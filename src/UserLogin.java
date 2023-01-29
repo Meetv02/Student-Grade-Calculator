@@ -36,15 +36,20 @@ public class UserLogin {
     public void Login(){
         try{
             Console cnl = System.console();
-            String password,uname;
+            String uname;
             String fmt="*";
             //getting username input
             System.out.println("Enter Username : ");
             uname = cnl.readLine();
+            //Username Validation
+            while (uname.length() < 6) {
+                System.out.println("Error: Name must be at least 6 characters long and only alphabet.");
+                System.out.print("Enter Username : ");
+                uname = cnl.readLine();
+            }
             System.out.println("Enter Password : ");
-            password = cnl.readPassword(fmt,"enter password").toString();
-
-            if(new Authenticate().verifyLogin(uname, password, register)){
+           char[] password = cnl.readPassword(fmt,"Enter Password");
+            if(new Authenticate().verifyLogin(uname, new String(password), register)){
 
             }
         }catch(Exception e){
