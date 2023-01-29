@@ -17,6 +17,7 @@ public class GradeCard {
         noOfSub = sc.nextInt();
 
         for(int i=0;i<noOfSub;i++){
+            sc.nextLine();
             System.out.println("Enter Subject Name : ");
             subName = sc.nextLine();
             System.out.println("Enter Marks : ");
@@ -54,7 +55,7 @@ public class GradeCard {
             ch = sc.nextInt();
             switch(ch){
                 case 1 :
-                    getPercentage();
+                    System.out.println("Your Percentage is : " + getPercentage() + "%");
                     break;
                 case 2 :
                     System.out.println("Your Grade is : "+getGrades());
@@ -78,7 +79,7 @@ public class GradeCard {
         }
     }
 
-    public int getPercentage(){
+    public float getPercentage(){
         int total=0;
 
         for(Map.Entry<String,Integer> entry : markData.entrySet()){
@@ -89,7 +90,7 @@ public class GradeCard {
     }
 
     public char getGrades(){
-        int percentage = getPercentage();
+        float percentage = getPercentage();
 
         if(percentage>=90){
             return 'A';
@@ -107,7 +108,7 @@ public class GradeCard {
     }
 
     public boolean getStatus(){
-        int percentage = getPercentage();
+        float percentage = getPercentage();
         boolean flag=true;
 
         for(Map.Entry<String,Integer> entry : markData.entrySet()){

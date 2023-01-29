@@ -12,7 +12,7 @@ public class UserLogin {
         Scanner sc = new Scanner(System.in);
         while(true){
             System.out.println("Options");
-            System.out.println("1 - Enter Credentials");
+            System.out.println("1 - Enter Credentials (Username And Password)");
             System.out.println("2 - Forget Password");
             System.out.println("3 - Back");
 
@@ -21,7 +21,7 @@ public class UserLogin {
             switch(ch){
                 case 1 :
                     new UserLogin(this.register).Login();
-                    break;
+                    return;
                 case 2 :
                     new UserLogin(this.register).forgetPassword();
                     break;
@@ -48,9 +48,18 @@ public class UserLogin {
                 uname = cnl.readLine();
             }
             System.out.println("Enter Password : ");
-           char[] password = cnl.readPassword(fmt,"Enter Password");
-            if(new Authenticate().verifyLogin(uname, new String(password), register)){
+            char[] password = cnl.readPassword(fmt,"Enter Password");
 
+            Authenticate auth = new Authenticate();
+            int status = auth.verifyLogin(uname, new String(password), register);
+
+            if(status==1){
+                new GradeCard().getInput();
+            }else if(status==2){
+                System.out.println("Wrong Password!! Try Again...");
+            }else{
+                System.out.println("Username does not exist, Please Register First\n");
+                loginMenu();
             }
         }catch(Exception e){
             System.out.println("Login Error "+e);
@@ -60,18 +69,24 @@ public class UserLogin {
     public void forgetPassword(){
         try{
             Console cnl = System.console();
-            String password,uname;
+            String uname;
 
             System.out.println("Enter your Username : ");
             uname = cnl.readLine();
             System.out.println("Enter New Password : ");
-            password = cnl.readPassword().toString();
+            char[] password = cnl.readPassword();
+
+            int index = new Authenticate().verifyUsername(uname,register);
+
+            if(index>=0){
+                register.UserList.get(index).set(2,new String(password));
+                System.out.println("Password Updated successfully");
+                System.out.println(register.UserList.get(index).get(2));
+            }else{
+                System.out.println("UserName does not exist!! Try Again...");
+            }
         }catch (Exception e){
             System.out.println("Forget Password Error "+e);
         }
-    }
-
-    public static void main(String[] args){
-
     }
 }
