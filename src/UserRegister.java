@@ -1,6 +1,8 @@
 import  java.util.*;
 import java.io.Console;
 public class UserRegister {
+    // Here a List is an ArrayList of ArrayLists
+    ArrayList<ArrayList<String> > UserList =new ArrayList<ArrayList<String> >();
     public static boolean isValidPassword(String password) {
         boolean hasLetter = false;
         boolean hasUpperCase = false;
@@ -18,15 +20,13 @@ public class UserRegister {
                 hasDigit = true;
             }
         }
-        return hasLetter && hasUpperCase && hasDigit && password.length() > 6;
+        return hasLetter && hasUpperCase && hasDigit && password.length() >= 6;
     }
 
     public  void  Register(){
         try {
             Scanner scanner = new Scanner(System.in);
             Console cnl=System.console();
-            // Here aList is an ArrayList of ArrayLists
-            ArrayList<ArrayList<String> > UserList =new ArrayList<ArrayList<String> >();
             ArrayList<String> User = new ArrayList<String>();
 
 

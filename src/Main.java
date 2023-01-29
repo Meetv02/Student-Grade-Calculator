@@ -1,10 +1,11 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void homeMenu(){
         Scanner sc = new Scanner(System.in);
         UserRegister register=new UserRegister();
         while(true){
+            System.out.println("\033\143");
             System.out.println("Menu");
             System.out.println("-------------------------\n");
             System.out.println("1 - Login");
@@ -28,5 +29,8 @@ public class Main {
                     break;
             }
         }
+    }
+    public static void main(String[] args) {
+        homeMenu();
     }
 }
