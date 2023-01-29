@@ -3,9 +3,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        UserRegister register=new UserRegister();
         while(true){
-            UserLogin user = new UserLogin();
-            UserRegister register=new UserRegister();
             System.out.println("Menu");
             System.out.println("1 - Login");
             System.out.println("2 - Regiter");
@@ -15,7 +14,8 @@ public class Main {
             int ch = sc.nextInt();
             switch(ch){
                 case 1 :
-                    user.Login();
+                    UserLogin userLogin = new UserLogin(register);
+                    userLogin.loginMenu();
                     break;
                 case 2 :
                     register.Register();
