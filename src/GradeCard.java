@@ -6,31 +6,34 @@ public class GradeCard {
     Map<String,Integer> markData = new HashMap<String,Integer>();
 
     public void getInput(){
-        System.out.println("\033\143");
+        //System.out.println("\033\143");
         int studID,noOfSub,marks;
         String subName;
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter Student ID : ");
+        System.out.print("| Enter Student ID : ");
         studID = sc.nextInt();
-
-        System.out.println("Enter No. of Subjects : ");
+        System.out.println("-------------------------");
+        System.out.print("| Enter No. of Subjects : ");
         noOfSub = sc.nextInt();
+        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*");
 
         for(int i=0;i<noOfSub;i++){
             sc.nextLine();
-            System.out.println("Enter Subject Name : ");
+            System.out.print("Enter Subject Name : ");
             subName = sc.nextLine();
-            System.out.println("Enter Marks : ");
+            System.out.print("Enter Marks : ");
             marks = sc.nextInt();
             markData.put(subName,marks);
+            System.out.println("-------------------------");
         }
 
         displayData();
     }
 
     public void displayData(){
-        System.out.println("Marks In Each Subject");
+        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+        System.out.println("| Marks In Each Subject |");
         int total=0;
 
         for(Map.Entry<String,Integer> entry : markData.entrySet()){
@@ -38,6 +41,7 @@ public class GradeCard {
             total+=entry.getValue();
         }
         System.out.println("\nTotal Marks Obtained : "+total);
+        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
         marksMenu();
 
     }
@@ -46,27 +50,40 @@ public class GradeCard {
         Scanner sc = new Scanner(System.in);
         while(true){
 //            System.out.println("\033\143");
-            System.out.println("Options");
-            System.out.println("1 - Show Percentage");
-            System.out.println("2 - Show Grades");
-            System.out.println("3 - Show Status");
-            System.out.println("4 - Log Out");
-            System.out.println("5 - Back");
+            System.out.println("*************************");
+            System.out.println("| Options               |");
+            System.out.println("*************************");
+            System.out.println("-------------------------");
+            System.out.println("| 1 - Show Percentage   |");
+            System.out.println("| 2 - Show Grades       |");
+            System.out.println("| 3 - Show Status       |");
+            System.out.println("| 4 - Log Out           |");
+            System.out.println("| 5 - Back              |");
+            System.out.println("-------------------------");
 
-            System.out.println("Enter Choice : ");
+            System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*");
+            System.out.print("| Enter Choice : ");
             ch = sc.nextInt();
             switch(ch){
                 case 1 :
-                    System.out.println("Your Percentage is : " + getPercentage() + "%");
+                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                    System.out.println("| Your Percentage is : " + getPercentage() + "%" + " |");
+                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                     break;
                 case 2 :
-                    System.out.println("Your Grade is : "+getGrades());
+                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                    System.out.println("| Your Grade is : "+getGrades() +" |");
+                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                     break;
                 case 3 :
                     if(getStatus()){
-                        System.out.println("Your status is : PASS");
+                        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                        System.out.println("| Your status is : PASS           |");
+                        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                     }else{
-                        System.out.println("Your status is : FAIL");
+                        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                        System.out.println("| Your status is : FAIL         |");
+                        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                     }
                     break;
                 case 4 :
@@ -75,7 +92,9 @@ public class GradeCard {
                 case 5 :
                     return;
                 default:
-                    System.out.println("Invalid Input!! Try again...");
+                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                    System.out.println("| Invalid Input!! Try again...  |");
+                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                     break;
             }
         }
