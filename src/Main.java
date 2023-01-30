@@ -7,6 +7,7 @@ public class Main {
         while(true){
             System.out.println("\033\143");
             System.out.println("Menu");
+            System.out.println("-------------------------\n");
             System.out.println("1 - Login");
             System.out.println("2 - Regiter");
             System.out.println("3 - Exit");

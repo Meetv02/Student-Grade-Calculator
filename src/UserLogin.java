@@ -74,8 +74,17 @@ public class UserLogin {
 
             System.out.println("Enter your Username : ");
             uname = cnl.readLine();
-            System.out.println("Enter New Password : ");
-            char[] password = cnl.readPassword();
+            while (uname.length() < 6) {
+                System.out.println("Error: Name must be at least 6 characters long and only alphabet.");
+                System.out.println("Enter your Username : ");
+                uname = cnl.readLine();
+            }
+            char[] password = cnl.readPassword("Enter New password:");
+            while (!register.isValidPassword( new String(password))){
+                System.out.println("Error: Password must contain 6 characters long, one lowercase letter, one uppercase letter, and one digit.");
+                password = cnl.readPassword("Enter your password:");
+            // System.out.println("Enter New Password : ");
+            // char[] password = cnl.readPassword();
 
             int index = new Authenticate().verifyUsername(uname,register);
 
