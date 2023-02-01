@@ -6,14 +6,20 @@ public class Main {
         UserRegister register=new UserRegister();
         while(true){
             System.out.println("\033\143");
-            System.out.println("Menu");
-            System.out.println("-------------------------\n");
-            System.out.println("1 - Login");
-            System.out.println("2 - Regiter");
-            System.out.println("3 - Exit");
+            System.out.println("*************************");
+            System.out.println("| Menu                  |");
+            System.out.println("*************************");
+            System.out.println("-------------------------");
+            System.out.println("| 1 - Login             |");
+            System.out.println("| 2 - Regiter           |");
+            System.out.println("| 3 - Exit              |");
+            System.out.println("-------------------------");
 
-            System.out.println("\nEnter Your Choice : ");
+            System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*");
+            System.out.print("| Enter Your Choice : ");
             int ch = sc.nextInt();
+            System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*");
+            //int ch = sc.nextInt();
             switch(ch){
                 case 1 :
                     UserLogin userLogin = new UserLogin(register);
@@ -23,9 +29,12 @@ public class Main {
                     register.Register();
                     break;
                 case 3 :
-                    return;
+                    System.exit(0);
+                    break;
                 default:
-                    System.out.println("Wrong choice!! Try Again...");
+                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                    System.out.println("| Wrong choice!! Try Again...   |");
+                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                     break;
             }
         }
