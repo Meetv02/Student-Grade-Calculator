@@ -4,23 +4,29 @@ public class UserRegister {
     // Here a List is an ArrayList of ArrayLists
     ArrayList<ArrayList<String> > UserList =new ArrayList<ArrayList<String> >();
     public static boolean isValidPassword(String password) {
-        boolean hasLetter = false;
-        boolean hasUpperCase = false;
-        boolean hasDigit = false;
+       try{
+            boolean hasLetter = false;
+            boolean hasUpperCase = false;
+            boolean hasDigit = false;
 
-        for (int i = 0; i < password.length(); i++) {
-            char c = password.charAt(i);
-            if (Character.isLetter(c)) {
-                hasLetter = true;
+            for (int i = 0; i < password.length(); i++) {
+                char c = password.charAt(i);
+                if (Character.isLetter(c)) {
+                    hasLetter = true;
+                }
+                if (Character.isUpperCase(c)) {
+                    hasUpperCase = true;
+                }
+                if (Character.isDigit(c)) {
+                    hasDigit = true;
+                }
             }
-            if (Character.isUpperCase(c)) {
-                hasUpperCase = true;
-            }
-            if (Character.isDigit(c)) {
-                hasDigit = true;
-            }
+            return hasLetter && hasUpperCase && hasDigit && password.length() >= 6;
+
+        }catch(Exception e){
+            System.out.println("Something went wrong"+e);
+             return false;        
         }
-        return hasLetter && hasUpperCase && hasDigit && password.length() >= 6;
     }
 
     public  void  Register(){

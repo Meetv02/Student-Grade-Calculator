@@ -2,7 +2,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void homeMenu(){
-        Scanner sc = new Scanner(System.in);
+
+
+         try{
+                 Scanner sc = new Scanner(System.in);
         UserRegister register=new UserRegister();
         while(true){
             System.out.println("\033\143");
@@ -38,6 +41,10 @@ public class Main {
                     break;
             }
         }
+         }catch(Exception e){
+            System.out.println("something went wrong"+e);
+         }
+       
     }
     public static void main(String[] args) {
         homeMenu();

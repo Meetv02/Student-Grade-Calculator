@@ -8,41 +8,49 @@ public class UserLogin {
     }
 
     public void loginMenu(){
-        int ch;
-        Scanner sc = new Scanner(System.in);
-        while(true){
-//            System.out.println("\033\143");
+         
+         try{
+            int ch;
+            Scanner sc = new Scanner(System.in);
+            while(true){
+            // System.out.println("\033\143");
 
-            System.out.println("*************************");
-            System.out.println("| Options               |");
-            System.out.println("*************************");
+                System.out.println("*************************");
+                System.out.println("| Options               |");
+                System.out.println("*************************");
 
-            System.out.println("-------------------------------------------------");
-            System.out.println("| 1 - Enter Credentials (Username And Password) |");
-            System.out.println("| 2 - Forget Password                           |");
-            System.out.println("| 3 - Back                                      |");
-            System.out.println("-------------------------------------------------");
+                System.out.println("-------------------------------------------------");
+                System.out.println("| 1 - Enter Credentials (Username And Password) |");
+                System.out.println("| 2 - Forget Password                           |");
+                System.out.println("| 3 - Back                                      |");
+                System.out.println("-------------------------------------------------");
 
-            System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*");
-            System.out.print("| Enter Choice :");
-            ch = sc.nextInt();
-            System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*");
-            switch(ch){
-                case 1 :
-                    new UserLogin(this.register).Login();
-                    break;
-                case 2 :
-                    new UserLogin(this.register).forgetPassword();
-                    break;
-                case 3 :
-                    return;
-                default:
-                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-                    System.out.println("| Invalid Input!! Try again...  |");
-                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-                    break;
+                System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*");
+                System.out.print("| Enter Choice :");
+                ch = sc.nextInt();
+                System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*");
+                switch(ch){
+                    case 1 :
+                        new UserLogin(this.register).Login();
+                        break;
+                    case 2 :
+                        new UserLogin(this.register).forgetPassword();
+                        break;
+                    case 3 :
+                        return;
+                    default:
+                        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                        System.out.println("| Invalid Input!! Try again...  |");
+                        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                        break;
+                }
             }
-        }
+         }catch(Exception e){
+            System.out.println("something went wrong"+e);
+         }
+        
+        
+        
     }
     public void Login(){
         try{
