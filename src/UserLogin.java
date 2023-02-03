@@ -68,7 +68,7 @@ public class UserLogin {
     }
 
     public void forgetPassword(){
-        try{
+        try {
             Console cnl = System.console();
             String uname;
 
@@ -80,20 +80,21 @@ public class UserLogin {
                 uname = cnl.readLine();
             }
             char[] password = cnl.readPassword("Enter New password:");
-            while (!register.isValidPassword( new String(password))){
+            while (!register.isValidPassword(new String(password))) {
                 System.out.println("Error: Password must contain 6 characters long, one lowercase letter, one uppercase letter, and one digit.");
                 password = cnl.readPassword("Enter your password:");
-            // System.out.println("Enter New Password : ");
-            // char[] password = cnl.readPassword();
+                // System.out.println("Enter New Password : ");
+                // char[] password = cnl.readPassword();
 
-            int index = new Authenticate().verifyUsername(uname,register);
+                int index = new Authenticate().verifyUsername(uname, register);
 
-            if(index>=0){
-                register.UserList.get(index).set(2,new String(password));
-                System.out.println("Password Updated successfully");
-                System.out.println(register.UserList.get(index).get(2));
-            }else{
-                System.out.println("UserName does not exist!! Try Again...");
+                if (index >= 0) {
+                    register.UserList.get(index).set(2, new String(password));
+                    System.out.println("Password Updated successfully");
+                    System.out.println(register.UserList.get(index).get(2));
+                } else {
+                    System.out.println("UserName does not exist!! Try Again...");
+                }
             }
         }catch (Exception e){
             System.out.println("Forget Password Error "+e);
