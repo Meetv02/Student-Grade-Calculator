@@ -84,12 +84,12 @@ public class UserRegister {
             User.add(new String(Password));
             UserList.add(User);
 
-            for (int i = 0; i < UserList.size(); i++) {
-                for (int j = 0; j < UserList.get(i).size(); j++) {
-                    System.out.print(UserList.get(i).get(j) + " ");
-                }
-                System.out.println();
-            }
+//            for (int i = 0; i < UserList.size(); i++) {
+//                for (int j = 0; j < UserList.get(i).size(); j++) {
+//                    System.out.print(UserList.get(i).get(j) + " ");
+//                }
+//                System.out.println();
+//            }
             System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
             System.out.println("| Registration Successful!  |");
             System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");

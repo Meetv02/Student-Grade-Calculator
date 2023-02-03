@@ -39,28 +39,15 @@ public class GradeCard {
 
     public void displayData(){
        try{
-        //System.out.println("\033\143");
-        int studID,noOfSub,marks;
-        String subName;
-        Scanner sc = new Scanner(System.in);
+           System.out.println("Marks In Each Subject");
+           int total=0;
 
-        System.out.print("| Enter Student ID : ");
-        studID = sc.nextInt();
-        System.out.println("-------------------------");
-        System.out.print("| Enter No. of Subjects : ");
-        noOfSub = sc.nextInt();
-        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*");
-
-        for(int i=0;i<noOfSub;i++){
-            sc.nextLine();
-            System.out.print("Enter Subject Name : ");
-            subName = sc.nextLine();
-            System.out.print("Enter Marks : ");
-            marks = sc.nextInt();
-            markData.put(subName,marks);
-            System.out.println("-------------------------");
-        }
-         displayData();
+           for(Map.Entry<String,Integer> entry : markData.entrySet()){
+               System.out.println(entry.getKey() + " = " + entry.getValue());
+               total+=entry.getValue();
+           }
+           System.out.println("\nTotal Marks Obtained : "+total);
+           marksMenu();
          }catch(Exception e){
             System.out.println("something went wrong"+e);
          }
@@ -156,8 +143,8 @@ public class GradeCard {
             return 'F';
          }catch(Exception e){
             System.out.println("something went wrong"+e);
-            return '';
-         }        
+            return ' ';
+         }
     }
 
     public boolean getStatus(){

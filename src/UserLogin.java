@@ -31,10 +31,10 @@ public class UserLogin {
                 System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*");
                 switch(ch){
                     case 1 :
-                        new UserLogin(this.register).Login();
+                        Login();
                         break;
                     case 2 :
-                        new UserLogin(this.register).forgetPassword();
+                        forgetPassword();
                         break;
                     case 3 :
                         return;
@@ -121,7 +121,7 @@ public class UserLogin {
                 System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                 System.out.println("| Password Updated successfully |");
                 System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-                System.out.println(register.UserList.get(index).get(2));
+                //System.out.println(register.UserList.get(index).get(2));
             }else{
                 System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                 System.out.println("| UserName does not exist!! Try Again...  |");
