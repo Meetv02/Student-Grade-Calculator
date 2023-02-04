@@ -29,6 +29,15 @@ public class UserRegister {
         }
     }
 
+    public boolean unameExist(String uname){
+        for(int i=0;i<UserList.size();i++){
+            if(UserList.get(i).get(1).equals(uname)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public  void  Register(){
         try {
             Scanner scanner = new Scanner(System.in);
@@ -65,11 +74,26 @@ public class UserRegister {
                 Username = scanner.nextLine();
                 System.out.println("-------------------------");
             }
+
+            while(unameExist(Username)){
+                System.out.println("Username already exist!! Enter new Username...\n");
+                System.out.print("| Username: ");
+                Username = scanner.next();
+                System.out.println("-------------------------");
+                //Username Validation
+                while (Username.length() < 6) {
+                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                    System.out.println("| Error: Name must be at least 6 characters long and only alphabet.   |");
+                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                    System.out.print("Username : ");
+                    Username = scanner.nextLine();
+                    System.out.println("-------------------------");
+                }
+            }
+
             char[] Password = cnl.readPassword("Enter your password:");
             System.out.println("-------------------------");
-            for (int i = 0; i <Password.length; i++) {
-                System.out.print("*");
-            }
+
             System.out.println();
             //Password Validation
             while (!isValidPassword( new String(Password))){
@@ -79,17 +103,12 @@ public class UserRegister {
                 Password = cnl.readPassword("Enter your password:");
                 System.out.println("-------------------------");
             }
+
             User.add(FullName);
             User.add(Username);
             User.add(new String(Password));
             UserList.add(User);
 
-//            for (int i = 0; i < UserList.size(); i++) {
-//                for (int j = 0; j < UserList.get(i).size(); j++) {
-//                    System.out.print(UserList.get(i).get(j) + " ");
-//                }
-//                System.out.println();
-//            }
             System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
             System.out.println("| Registration Successful!  |");
             System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");

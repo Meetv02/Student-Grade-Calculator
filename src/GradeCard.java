@@ -26,7 +26,12 @@ public class GradeCard {
             subName = sc.nextLine();
             System.out.print("Enter Marks : ");
             marks = sc.nextInt();
-            markData.put(subName,marks);
+            if(marks<0 || marks>100){
+                System.out.println("Enter marks between 0 and 100");
+                i--;
+            }else{
+                markData.put(subName,marks);
+            }
             System.out.println("-------------------------");
         }
 
@@ -114,7 +119,6 @@ public class GradeCard {
        
     }
     public float getPercentage(){
-
         try{
             int total=0;
             for(Map.Entry<String,Integer> entry : markData.entrySet()){
@@ -123,7 +127,8 @@ public class GradeCard {
             return total/markData.size();
          }catch(Exception e){
             System.out.println("something went wrong"+e);
-         }        
+         }
+        return 0;
     }
 
     public char getGrades(){
