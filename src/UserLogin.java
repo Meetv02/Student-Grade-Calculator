@@ -2,13 +2,14 @@ import java.io.Console;
 import java.util.Scanner;
 
 public class UserLogin {
+    //creating Null object of UserRegister Class
     UserRegister register;
     UserLogin(UserRegister register){
+        //initializing null object with original object which contains user data
         this.register = register;
     }
 
     public void loginMenu(){
-         
          try{
             int ch;
             Scanner sc = new Scanner(System.in);
@@ -48,9 +49,6 @@ public class UserLogin {
          }catch(Exception e){
             System.out.println("something went wrong"+e);
          }
-        
-        
-        
     }
     public void Login(){
         try{
@@ -76,9 +74,11 @@ public class UserLogin {
             char[] password = cnl.readPassword("| Enter Password :      |");
             System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*");
 
+            //creating object of Authenticate class which will verify username and password
             Authenticate auth = new Authenticate();
             int status = auth.verifyLogin(uname, new String(password), register);
 
+            //checking return status of Authentication
             if(status==1){
                 new GradeCard().getInput();
             }else if(status==2){
@@ -98,6 +98,7 @@ public class UserLogin {
         }
     }
 
+    //Method for forget password
     public void forgetPassword(){
         try{
             Console cnl = System.console();
@@ -114,8 +115,10 @@ public class UserLogin {
             char[] password = cnl.readPassword();
             System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*");
 
+            //calling function to verify username exist or not
             int index = new Authenticate().verifyUsername(uname,register);
 
+            //checking if returned index is non-negative then update password
             if(index>=0){
                 register.UserList.get(index).set(2,new String(password));
                 System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");

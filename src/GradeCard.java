@@ -3,8 +3,10 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class GradeCard {
+    //creating hash map to store subject wise marks
     Map<String,Integer> markData = new HashMap<String,Integer>();
 
+    //function to take input of subject and marks from user
     public void getInput(){
         try{
 
@@ -26,15 +28,18 @@ public class GradeCard {
             subName = sc.nextLine();
             System.out.print("Enter Marks : ");
             marks = sc.nextInt();
+            //checking if marks are in the range
             if(marks<0 || marks>100){
                 System.out.println("Enter marks between 0 and 100");
                 i--;
             }else{
+                //storing data in HashMap
                 markData.put(subName,marks);
             }
             System.out.println("-------------------------");
         }
 
+        //calling function to display data
         displayData();
 
          }catch(Exception e){
@@ -42,16 +47,19 @@ public class GradeCard {
          }
     }
 
+    //function to display subject wise marks and total
     public void displayData(){
        try{
            System.out.println("Marks In Each Subject");
            int total=0;
 
+           //printing subject wise marks
            for(Map.Entry<String,Integer> entry : markData.entrySet()){
                System.out.println(entry.getKey() + " = " + entry.getValue());
                total+=entry.getValue();
            }
            System.out.println("\nTotal Marks Obtained : "+total);
+           //calling function to display options for result
            marksMenu();
          }catch(Exception e){
             System.out.println("something went wrong"+e);
@@ -118,6 +126,8 @@ public class GradeCard {
          }
        
     }
+
+    //function to count percentage of student
     public float getPercentage(){
         try{
             int total=0;
@@ -131,6 +141,7 @@ public class GradeCard {
         return 0;
     }
 
+    //function to count grade of student
     public char getGrades(){
         try{        
             float percentage = getPercentage();
@@ -152,6 +163,7 @@ public class GradeCard {
          }
     }
 
+    //function to check status of student
     public boolean getStatus(){
         try{
             float percentage = getPercentage();
@@ -171,7 +183,5 @@ public class GradeCard {
             System.out.println("something went wrong"+e);
             return false;
          }
-
-       
     }
 }

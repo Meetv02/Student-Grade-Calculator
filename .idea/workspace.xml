@@ -7,11 +7,10 @@
     <list default="true" id="60b9a2e2-46fc-4268-ad62-5ce1c44dc4fe" name="Changes" comment="login-register">
       <change afterPath="$PROJECT_DIR$/../HelloWorld/src/a.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Authenticate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authenticate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GradeCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GradeCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserRegister.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserRegister.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
