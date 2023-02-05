@@ -4,6 +4,39 @@ import java.util.Scanner;
 public class UserLogin {
     //creating Null object of UserRegister Class
     UserRegister register;
+
+    //Function to validate password
+    public static boolean isValidPassword(String password) {
+        try{
+            boolean hasLetter = false;
+            boolean hasUpperCase = false;
+            boolean hasDigit = false;
+
+            for (int i = 0; i < password.length(); i++) {
+                char c = password.charAt(i);
+
+                //checking if character is letter
+                if (Character.isLetter(c)) {
+                    hasLetter = true;
+                }
+
+                //checking if character is uppercase
+                if (Character.isUpperCase(c)) {
+                    hasUpperCase = true;
+                }
+                //checking if character is Number
+                if (Character.isDigit(c)) {
+                    hasDigit = true;
+                }
+            }
+            return hasLetter && hasUpperCase && hasDigit && password.length() >= 6;
+
+        }catch(Exception e){
+            System.out.println("Something went wrong"+e);
+            return false;
+        }
+    }
+
     UserLogin(UserRegister register){
         //initializing null object with original object which contains user data
         this.register = register;
@@ -67,11 +100,10 @@ public class UserLogin {
                 System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
 
                 System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*");
-                System.out.println("| Enter Username :      |");
-                uname = cnl.readLine();
+                uname = cnl.readLine("| Enter Username : ");
                 System.out.println("-------------------------");
             }
-            char[] password = cnl.readPassword("| Enter Password :      |");
+            char[] password = cnl.readPassword("| Enter Password : ");
             System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*");
 
             //creating object of Authenticate class which will verify username and password
@@ -105,15 +137,22 @@ public class UserLogin {
             String uname;
 
             System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*");
-            System.out.println("| Enter Your Username :      |");
-            System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*");
-
+            System.out.print("| Enter Your Username : ");
             uname = cnl.readLine();
+            System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*");
+
 
             System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*");
-            System.out.println("| Enter New Password : ");
-            char[] password = cnl.readPassword();
+            char[] password = cnl.readPassword("| Enter New Password : ");
             System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*");
+
+            while (!isValidPassword( new String(password))){
+                System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                System.out.println("| Error: Password must contain 6 characters long, one lowercase letter, one uppercase letter, and one digit.   |");
+                System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                password = cnl.readPassword("| Enter New password : ");
+                System.out.println("-------------------------");
+            }
 
             //calling function to verify username exist or not
             int index = new Authenticate().verifyUsername(uname,register);

@@ -80,8 +80,8 @@ public class UserRegister {
                 System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                 System.out.println("| Error: Name must be at least 6 characters long and only alphabet.   |");
                 System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-                System.out.print("Username : ");
-                Username = scanner.nextLine();
+                System.out.print("| Username : ");
+                Username = scanner.next();
                 System.out.println("-------------------------");
             }
 
@@ -96,13 +96,13 @@ public class UserRegister {
                     System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                     System.out.println("| Error: Name must be at least 6 characters long and only alphabet.   |");
                     System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-                    System.out.print("Username : ");
+                    System.out.print("| Username : ");
                     Username = scanner.nextLine();
                     System.out.println("-------------------------");
                 }
             }
 
-            char[] Password = cnl.readPassword("Enter your password:");
+            char[] Password = cnl.readPassword("| password : ");
             System.out.println("-------------------------");
 
             System.out.println();
@@ -111,7 +111,7 @@ public class UserRegister {
                 System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                 System.out.println("| Error: Password must contain 6 characters long, one lowercase letter, one uppercase letter, and one digit.   |");
                 System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-                Password = cnl.readPassword("Enter your password:");
+                Password = cnl.readPassword("| password : ");
                 System.out.println("-------------------------");
             }
 

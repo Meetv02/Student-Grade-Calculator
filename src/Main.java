@@ -6,7 +6,7 @@ public class Main {
                  Scanner sc = new Scanner(System.in);
                  UserRegister register=new UserRegister();
         while(true){
-            System.out.println("\033\143");
+//            System.out.println("\033\143");
             System.out.println("**************************");
             System.out.println("|          Menu          |");
             System.out.println("**************************");
